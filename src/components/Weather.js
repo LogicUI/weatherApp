@@ -1,35 +1,28 @@
-import React from "react";
-import getCurrentPosition from "../apis/getCurrentPosition"
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchGeoCoordinates } from '../actions';
 
 class Weather extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            longitude:0,
-            latitude:0
-        }
-    }
+  componentDidMount() {
+    this.props.fetchGeoCoordinates();
+  }
 
-    componentDidMount = async() =>{
-        try{
-            const {coords} = await getCurrentPosition()
-            const { latitude, longitude } = coords;
-            this.setState({longitude ,latitude});
-
-        }catch(error){
-            console.log(error.message);
-        }
-    }
-
-    render(){
-        return(
-            <section>
-                <h1>{this.state.longitude}</h1>
-                <h1>{this.state.latitude}</h1>
-            </section>
-        )
-    }
-
+  render() {
+    const { latitude, longitude } = this.props.coords;
+    return (
+      <section>
+        <h1>{latitude}</h1>
+        <h1>{longitude}</h1>
+      </section>
+    );
+  }
 }
 
-export default Weather;
+const mapStateToProps = (state) => {
+  return { coords: state.coordinates };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchGeoCoordinates }
+)(Weather);
