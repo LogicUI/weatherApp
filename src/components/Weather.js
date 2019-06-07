@@ -7,12 +7,16 @@ class Weather extends React.Component {
     this.props.fetchGeoCoordinates();
   }
 
-  render() {
+  getWeather() {
     const { latitude, longitude } = this.props.coords;
+    // getWeatherCords.get(`/?lattlong=${latitude},${longitude}`).then(result => console.log(result))
+    // .catch(err=>console.log(err.message));
+  }
+
+  render() {
     return (
       <section>
-        <h1>{latitude}</h1>
-        <h1>{longitude}</h1>
+          {this.getWeather()}
       </section>
     );
   }
