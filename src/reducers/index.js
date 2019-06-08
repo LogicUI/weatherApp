@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import geoReducer from "./geoReducer";
-
+import weatherReducer from "./weatherReducer";
 export default combineReducers({
-    coordinates: geoReducer
+    forecast:weatherReducer
 });

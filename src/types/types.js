@@ -1,1 +1,1 @@
-export const FETCH_COORDINATES = "FETCH_CORD";
+export const FETCH_WEATHER = "FETCH_WEATHER";

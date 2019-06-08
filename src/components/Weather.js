@@ -1,32 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchGeoCoordinates } from '../actions';
+import {fetchWeather} from "../actions";
 
 class Weather extends React.Component {
   componentDidMount() {
-    this.props.fetchGeoCoordinates();
+    this.props.fetchWeather();
   }
 
-  getWeather() {
-    const { latitude, longitude } = this.props.coords;
-    // getWeatherCords.get(`/?lattlong=${latitude},${longitude}`).then(result => console.log(result))
-    // .catch(err=>console.log(err.message));
-  }
 
   render() {
+      console.log(this.props);
     return (
       <section>
-          {this.getWeather()}
+        test
       </section>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return { coords: state.coordinates };
+    return {forecast:state.forecast}
 };
 
 export default connect(
-  mapStateToProps,
-  { fetchGeoCoordinates }
+  mapStateToProps,{fetchWeather}
 )(Weather);
