@@ -1,27 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import {fetchWeather} from "../actions";
+// import React from 'react';
+// import { connect } from 'react-redux';
 
-class Weather extends React.Component {
-  componentDidMount() {
-    this.props.fetchWeather();
-  }
+// class Weather extends React.Component {
+//   componentDidMount() {
+//   }
 
 
-  render() {
-      console.log(this.props);
-    return (
-      <section>
-        test
-      </section>
-    );
-  }
-}
+//   render() {
 
-const mapStateToProps = (state) => {
-    return {forecast:state.forecast}
-};
+//   }
+// }
 
-export default connect(
-  mapStateToProps,{fetchWeather}
-)(Weather);
+// const mapStateToProps = (state) => {
+//     return {forecast:state.forecast}
+// };
+
+// export default connect(
+//   mapStateToProps,{fetchWeather}
+// )(Weather);

@@ -1,11 +1,13 @@
 import React from 'react';
 import Weather from "./Weather"
+import Header from './Header.js'
+import { styledRoot } from '../styled/styledRoot';
 
 const App = () => {
   return (
-    <section>
-      <Weather />
-    </section>
+    <styledRoot>
+      <Header />
+    </styledRoot>
   )
 }
 
