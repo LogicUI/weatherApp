@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const styledRoot = styled.section`
+export const StyledRoot = styled.section`
   height: 100vh;
   display: grid;
   grid-template-areas:

@@ -1,4 +1,8 @@
 import { FETCH_WEATHER } from '../types/types';
+
+
+
+
 // const INITIAL_STATE = { title: 'No country stated', forecast: [] };
 
 // export default (state = INITIAL_STATE, action) => {

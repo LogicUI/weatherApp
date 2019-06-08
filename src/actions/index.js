@@ -2,20 +2,15 @@ import getCurrentPosition from '../apis/getCurrentPosition';
 import { FETCH_WEATHER, FETCH_GEO } from '../types/types';
 import merriWeatherAPI from '../apis/merriWeatherAPI';
 
-
-
 export const fetchGeoCoordinates = () => async (dispatch) => {
   try {
     const { coords } = await getCurrentPosition();
-    const { latitude:latt, longitude:long } = coords;
+    const { latitude: latt, longitude: long } = coords;
     dispatch({ type: FETCH_GEO, payload: { latt, long } });
   } catch (err) {
     console.log(err.message);
   }
 };
-
-
-
 
 // export const fetchWeather = () => async (dispatch) => {
 //   try {
@@ -32,8 +27,6 @@ export const fetchGeoCoordinates = () => async (dispatch) => {
 //     console.log(err.message);
 //   }
 // };
-
-
 
 // export const fetchLocation = (latt, long) => async (dispatch) => {
 //   try {
