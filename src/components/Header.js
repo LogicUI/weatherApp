@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchGeoCoordinates } from '../actions';
+import { fetchWeather } from '../actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StyledHead } from '../styled/StyledHead';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 class Header extends Component {
-  componentDidMount() {
-    this.props.fetchGeoCoordinates();
+  componentDidMount = async() =>{
+      this.props.fetchWeather();
   }
 
   renderConditional() {
@@ -28,7 +28,7 @@ class Header extends Component {
   }
 
   render() {
-    return <StyledHead>{this.renderConditional()}</StyledHead>;
+    return <StyledHead>test</StyledHead>;
   }
 }
 
@@ -38,5 +38,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { fetchGeoCoordinates }
+  { fetchWeather }
 )(Header);

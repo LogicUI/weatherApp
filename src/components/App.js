@@ -1,5 +1,5 @@
 import React from 'react';
-import Weather from './Weather';
+import Main from './Main';
 import Header from './Header.js';
 import { StyledRoot } from '../styled/StyledRoot';
 
@@ -7,6 +7,7 @@ const App = () => {
   return (
     <StyledRoot>
       <Header />
+      {/* <Main /> */}
     </StyledRoot>
   );
 };
