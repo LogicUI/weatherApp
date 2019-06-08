@@ -10,11 +10,11 @@ export const StyledRoot = styled.section`
     'footer';
 
   grid-template-columns: 1fr;
-  grid-template-rows: 
-  auto
-  minmax(75px,1fr)
-  1fr
-  auto;
+  grid-template-rows:
+    auto
+    minmax(75px, 1fr)
+    1fr
+    auto;
 
   @media (min-width: 768px) {
     grid-template-areas:

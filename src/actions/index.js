@@ -1,14 +1,19 @@
 import getCurrentPosition from '../apis/getCurrentPosition';
-import { FETCH_WEATHER, FETCH_GEO } from '../types/types';
+import { FETCH_WEATHER, FETCH_GEO, FETCH_ERR } from '../types/types';
 import merriWeatherAPI from '../apis/merriWeatherAPI';
+import {checkErrorCode} from "./actionHelper";
 
+/**
+ * Fetches the latt and long values from geolocation api and error messages if any 
+ */
 export const fetchGeoCoordinates = () => async (dispatch) => {
   try {
     const { coords } = await getCurrentPosition();
     const { latitude: latt, longitude: long } = coords;
     dispatch({ type: FETCH_GEO, payload: { latt, long } });
   } catch (err) {
-    console.log(err.message);
+    const errorResult = checkErrorCode(err);
+    dispatch({type:FETCH_ERR,payload:errorResult});
   }
 };
 

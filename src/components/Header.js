@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchGeoCoordinates } from '../actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { StyledHead } from '../styled/StyledHead';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 class Header extends Component {
   componentDidMount() {
@@ -10,25 +13,27 @@ class Header extends Component {
 
   renderConditional() {
     const { latt, long } = this.props.coords;
-
-    if (latt && long) { // check if lattitude and longitude coordinates has a valid value
+    const { err } = this.props.errors;
+    if (latt && long) {
+      return <Typography varient="h1" color="primary">Coordinates has loaded sucessfully</Typography>;
+    } else if (err) {
       return (
-        <React.Fragment>
-            <h1>Coordinates has loaded sucessfully</h1>
-        </React.Fragment>
+        <Typography varient="h1" color="secondary">
+          {err}
+        </Typography>
       );
-    }else{
-        return <CircularProgress />
+    } else {
+      return <CircularProgress />;
     }
   }
 
   render() {
-    return <header>{this.renderConditional()}</header>;
+    return <StyledHead>{this.renderConditional()}</StyledHead>;
   }
 }
 
 const mapStateToProps = (state) => {
-  return { coords: state.geo };
+  return { coords: state.geo, errors: state.err };
 };
 
 export default connect(

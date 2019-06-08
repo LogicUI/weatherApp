@@ -1,18 +1,17 @@
 import React from 'react';
-import Weather from "./Weather"
-import Header from './Header.js'
-import { StyledRoot } from '../styled/styledRoot';
+import Weather from './Weather';
+import Header from './Header.js';
+import { StyledRoot } from '../styled/StyledRoot';
 
 const App = () => {
   return (
     <StyledRoot>
       <Header />
     </StyledRoot>
-  )
-}
+  );
+};
 
 export default App;
-
 
 // class App extends React.Component {
 
@@ -25,9 +24,8 @@ export default App;
 //   };
 
 //   componentDidMount = async() =>{
-//     const 
+//     const
 //   }
-
 
 //   render() {
 //     return <section>App</section>;
