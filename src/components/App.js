@@ -1,5 +1,4 @@
 import React from 'react';
-import Main from './Main';
 import Header from './Header.js';
 import { StyledRoot } from '../styled/StyledRoot';
 
