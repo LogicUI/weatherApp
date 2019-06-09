@@ -4,7 +4,6 @@ import { fetchWeather } from '../actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StyledHead } from '../styled/StyledHead';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
 class Header extends Component {
   componentDidMount = async() =>{
@@ -33,7 +32,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { coords: state.geo, errors: state.err };
+  return { coords: state.weather, errors: state.err };
 };
 
 export default connect(

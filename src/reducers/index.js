@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import weatherReducer from "./weatherReducer";
-import fetchGeoReducer from "./fetchGeoReducer";
-import fetchGeoErrReducer from "./fetchGeoErrReducer";
+import fetchWeatherReducer from "./fetchWeatherReducer";
+import fetchErrReducer from "./FetchErrorReducer";
 
 export default combineReducers({
-    geo: fetchGeoReducer,
-    err: fetchGeoErrReducer
+    Weather: fetchWeatherReducer,
+    err: fetchErrReducer
 });
