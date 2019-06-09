@@ -3,6 +3,6 @@ import fetchWeatherReducer from "./fetchWeatherReducer";
 import fetchErrReducer from "./FetchErrorReducer";
 
 export default combineReducers({
-    Weather: fetchWeatherReducer,
+    weather: fetchWeatherReducer,
     err: fetchErrReducer
 });

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-
-export const StyledHead = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+import {flexBoxCenter} from "./base/flexBoxCenter"
+/**
+ * The styled header for the page 
+ */
+export const StyledHead = styled(flexBoxCenter)`
   grid-area: header;
   padding:2rem;
-  text-align:center;
+  justify-content:space-around;
+  background:lightgray;
 `;
