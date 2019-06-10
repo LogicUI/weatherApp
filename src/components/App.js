@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header.js';
-import { StyledRoot } from '../styled/StyledRoot';
+// import Header from './Header.js';
+// import { StyledRoot } from '../styled/StyledRoot';
 import { connect } from 'react-redux';
 import { fetchWeather } from '../actions';
 
@@ -23,9 +23,6 @@ class App extends React.Component {
 //   );
 // };
 
-const mapStateToProps = (state) => {
-  return { weatherData: state.weather.location, errors: state.err };
-};
 
 export default connect(
   null,
