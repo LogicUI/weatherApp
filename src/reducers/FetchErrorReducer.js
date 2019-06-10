@@ -1,7 +1,7 @@
 import {FETCH_ERR} from "../types/types.js";
 
 
-const fetchGeoErrRedcuer = (state={},action) =>{
+const fetchErrReducer = (state={},action) =>{
     switch(action.type){
         case FETCH_ERR:
             return action.payload
@@ -10,4 +10,4 @@ const fetchGeoErrRedcuer = (state={},action) =>{
     }
 }
 
-export default fetchGeoErrRedcuer;
+export default fetchErrReducer;

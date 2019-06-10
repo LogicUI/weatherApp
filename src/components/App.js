@@ -1,17 +1,36 @@
 import React from 'react';
 import Header from './Header.js';
 import { StyledRoot } from '../styled/StyledRoot';
+import { connect } from 'react-redux';
+import { fetchWeather } from '../actions';
 
-const App = () => {
-  return (
-    <StyledRoot>
-      <Header />
-      {/* <Main /> */}
-    </StyledRoot>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchWeather();
+  }
+
+  render() {
+    return <div>Test</div>;
+  }
+}
+
+// const App = () => {
+//   return (
+//     <StyledRoot>
+//       {/* <Header />
+//       <Main /> */}
+//     </StyledRoot>
+//   );
+// };
+
+const mapStateToProps = (state) => {
+  return { weatherData: state.weather.location, errors: state.err };
 };
 
-export default App;
+export default connect(
+  null,
+  { fetchWeather }
+)(App);
 
 // class App extends React.Component {
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWeather } from '../actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StyledHead } from '../styled/StyledHead';
 import Typography from '@material-ui/core/Typography';
@@ -11,9 +10,9 @@ import CalenderViewDay from '@material-ui/icons/CalendarViewDay';
 // import shortid from 'shortid';
 
 class Header extends Component {
-  componentDidMount() {
-    this.props.fetchWeather();
-  }
+//   componentDidMount() {
+//     this.props.fetchWeather();
+//   }
 
   /**
    * renders the header data when its loaded
@@ -65,6 +64,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps,
-  { fetchWeather }
+  mapStateToProps
 )(Header);
