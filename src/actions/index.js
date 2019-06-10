@@ -1,7 +1,7 @@
 import getCurrentPosition from '../apis/getCurrentPosition';
 import { FETCH_WEATHER, FETCH_ERR } from '../types/types';
-import { checkErrorCode } from './actionHelper';
-import apixu from '../apis/apixu';
+import { checkErrorCode ,getWeatherData} from './actionHelper';
+
 
 /**
  * Fetches the geolocation latt and long of the user and fetches the weather
@@ -11,16 +11,19 @@ export const fetchWeather = () => async (dispatch) => {
   try {
     const { coords } = await getCurrentPosition();
     const { latitude: latt, longitude: long } = coords;
-    const response = await apixu.get('forecast.json', {
-      params: {
-        key: 'cccb75dd9c9942cf958131844190806',
-        q: `${latt},${long}`,
-        days: 7
-      }
-    });
+    const response = await getWeatherData(latt,long);
     dispatch({ type: FETCH_WEATHER, payload: response.data});
   } catch (err) {
-    const errorResult = checkErrorCode(err);
-    dispatch({ type: FETCH_ERR, payload: errorResult });
+    console.log(err);
+    // const errorResult = checkErrorCode(err);
+    // dispatch({ type: FETCH_ERR, payload: errorResult });
   }
 };
+
+
+// location:
+// country: "Singapore"
+// lat: 1.28
+// localtime: "2019-06-10 16:33"
+// localtime_epoch: 1560155630
+// lon: 103.85
