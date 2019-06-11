@@ -6,6 +6,6 @@ import {flexBoxCenter} from "./base/flexBoxCenter"
 export const StyledHead = styled(flexBoxCenter)`
   grid-area: header;
   padding:2rem;
-  justify-content:space-around;
+  justify-content:space-evenly;
   background:lightgray;
 `;
