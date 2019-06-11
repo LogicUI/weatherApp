@@ -1,8 +1,9 @@
 import React from 'react';
 import getWeatherData from '../helpers/getWeatherData';
 import getCurrentPosition from '../apis/getCurrentPosition';
-import Header from './Header.jsx';
+import Header from './headerComponents/Header.jsx';
 import Main from "./Main.jsx";
+import Nav from "./navComponents/Nav.jsx";
 import {StyledRoot} from "../styled/StyledRoot";
 
 class App extends React.Component {
@@ -41,6 +42,7 @@ class App extends React.Component {
       <StyledRoot>
         <Header country={this.state.location.country} />
         <Main current={this.state.current.condition}/>
+        {/* <Nav forecast={this.state.forecast}/> */}
       </StyledRoot>
     );
   }

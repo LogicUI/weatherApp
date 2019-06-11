@@ -1,13 +1,5 @@
-import React, { Component } from 'react'
+import styled from 'styled-components';
 
-export class StyledNav extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
-}
-
-export default StyledNav
+export const StyledNav = styled.div`
+  grid-area: nav;
+`;

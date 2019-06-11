@@ -30,10 +30,10 @@ class Calendar {
   }
 
   setNewDate(value) {
-    this._date = value;
+    this._date = new Date(value);
   }
 
-  getNewDate() {
+  _getNewDate() {
     return this._date.getDate();
   }
 
@@ -41,13 +41,21 @@ class Calendar {
     return this._DAYS[this._date.getDay()];
   }
 
-  getMonthName() {
+  _getMonthName() {
     return this._MONTHS[this._date.getMonth()];
   }
 
-  getYear() {
-    return this._date.getFullYear;
+  _getYear() {
+    return this._date.getFullYear();
   }
+
+  /**
+   * generate date in a format such as Monday , 11 June 2019
+   */
+  generateDate(){
+    return `${this.getDayName()} , ${this._getNewDate()} ${this._getMonthName()} ${this._getYear()}`;
+  }
+
 }
 
 
