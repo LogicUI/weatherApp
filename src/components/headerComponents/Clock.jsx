@@ -1,5 +1,5 @@
 import React from 'react';
-import Alarm from "@material-ui/icons/Alarm";
+import "../../scss/generalized.scss";
 
 
 /**
@@ -36,7 +36,7 @@ class Clock extends React.Component {
   }
 
   render() {
-    return <h1><Alarm/>{this.state.time}</h1>;
+    return <h1 className="is-size-5 ">{this.state.time}</h1>;
   }
 }
 

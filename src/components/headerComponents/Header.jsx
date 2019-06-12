@@ -1,8 +1,7 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { StyledHead } from '../../styled/StyledHead';
 import React, { Component } from 'react';
-import HeaderContent from "./HeaderContent.jsx";
-
+import HeaderContent from './HeaderContent.jsx';
+import "../../scss/header.scss";
 
 export class Header extends Component {
   /**
@@ -10,14 +9,14 @@ export class Header extends Component {
    */
   loadStatus() {
     if (this.props.country) {
-      return  <HeaderContent country={this.props.country}/>
+      return <HeaderContent country={this.props.country} />;
     } else {
       return <CircularProgress />;
     }
   }
 
   render() {
-    return <StyledHead>{this.loadStatus()}</StyledHead>;
+    return <section className="header navbar is-dark">{this.loadStatus()}</section>;
   }
 }
 

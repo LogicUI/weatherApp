@@ -1,0 +1,5 @@
+@import './mixins';
+
+.flex-middle {
+  @include flex-box(column);
+}

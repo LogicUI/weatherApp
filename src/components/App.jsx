@@ -5,6 +5,7 @@ import Header from './headerComponents/Header.jsx';
 import Main from './Main.jsx';
 import Nav from './navComponents/Nav.jsx';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
+import "../scss/app.scss";
 
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
       const response = await getWeatherData(latt, long);
       const { location, current, forecast } = response.data;
       const newForeCast = mapForeCastToDays(forecast.forecastday);
-
+      console.log(newForeCast);
       this.setState({
         location,
         current,
@@ -37,10 +38,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="app">
         <Header country={this.state.location.country} />
         <Main current={this.state.current.condition} />
-        <Nav forecast={this.state.forecast} />
+        <Nav forecast={this.state.forecast} current={this.state.current.condition} />
       </section>
     );
   }

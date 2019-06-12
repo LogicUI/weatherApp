@@ -1,0 +1,14 @@
+@import './mixins';
+@import '../../node_modules/bulma/bulma.sass';
+@import '../../node_modules/bulma/sass/components/navbar.sass';
+
+.header {
+  @include flex-box(column);
+  grid-area: header;
+  padding: 2rem;
+  justify-content: space-evenly;
+
+  @include media-breakpoint(sm) {
+    flex-direction: row;
+  }
+}

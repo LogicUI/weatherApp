@@ -7,9 +7,16 @@ export class HeaderContent extends Component {
   renderHeaderData() {
     return (
       <React.Fragment>
-        <Country country={this.props.country} />
-        <CurrentDate />
         <Clock />
+        <h1 className="is-size-5">GeoLocation Weather App</h1>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="Search For Country "
+          />
+        </div>
+        {/* <CurrentDate /> */}
       </React.Fragment>
     );
   }
@@ -20,4 +27,3 @@ export class HeaderContent extends Component {
 }
 
 export default HeaderContent;
-
