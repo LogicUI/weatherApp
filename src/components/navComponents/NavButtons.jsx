@@ -7,7 +7,6 @@ import {StyledNavButtons} from "../../styled/StyledNavButtons"
 
 const NavButtons = (props) => {
     const getDay = new Calendar();
-    getDay.
     console.log(props);
     return (
         <StyledNavButtons>

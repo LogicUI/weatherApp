@@ -10,7 +10,7 @@ const getWeatherData = async (latt, long) => {
     params: {
       key: 'cccb75dd9c9942cf958131844190806',
       q: `${latt},${long}`,
-      days: 7
+      days: 5
     }
   });
   return response;

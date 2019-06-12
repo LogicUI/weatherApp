@@ -4,8 +4,8 @@ import getCurrentPosition from '../apis/getCurrentPosition';
 import Header from './headerComponents/Header.jsx';
 import Main from './Main.jsx';
 import Nav from './navComponents/Nav.jsx';
-import { StyledRoot } from '../styled/StyledRoot';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -37,11 +37,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <StyledRoot>
+      <section>
         <Header country={this.state.location.country} />
         <Main current={this.state.current.condition} />
         <Nav forecast={this.state.forecast} />
-      </StyledRoot>
+      </section>
     );
   }
 }
