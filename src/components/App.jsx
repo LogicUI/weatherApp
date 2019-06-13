@@ -24,16 +24,23 @@ class App extends React.Component {
       const { latitude: latt, longitude: long } = coords;
       const response = await getWeatherData(latt, long);
       const { location, current, forecast } = response.data;
-      const newForeCast = mapForeCastToDays(forecast.forecastday);
       const newCurrent = mapCurrentData(current);
+      const newForeCast = mapForeCastToDays(forecast.forecastday);
       this.setState({
         location,
+        todayWeather:newCurrent,
         current: newCurrent,
         forecast: newForeCast
       });
     } catch (err) {
       console.log(err.message);
     }
+  };
+
+  handleNavButton = (value) => {
+      this.setState({
+        current:value
+      })
   };
 
   render() {
@@ -43,7 +50,8 @@ class App extends React.Component {
         <Main current={this.state.current} />
         <Nav
           forecast={this.state.forecast}
-          current={this.state.current}
+          current={this.state.todayWeather}
+          handleNavButton={this.handleNavButton}
         />
       </section>
     );

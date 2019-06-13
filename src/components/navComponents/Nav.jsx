@@ -5,26 +5,21 @@ import shortid from 'shortid';
 import React, { Component } from 'react';
 
 export class Nav extends Component {
-  //   return array.map((element) => {
-  //     return (
-  //       <NavButtons
-  //         key={shortid.generate()}
-  //         foreCastDay={element}
-  //         handleNavButton={handleNavButton}
-  //       />
-  //     );
-  //   });
+
 
   _renderNavButtons() {
-    return this.props.forecast.map((element) => {
-      return (
-        <NavButtons
-          key={shortid.generate()}
-          foreCastDay={element}
-          handleNavButton={this.props.handleNavButton}
-        />
-      );
-    });
+    const buttons = [this.props.current, ...this.props.forecast]; // create a new array of buttons for today and forecast weather
+    if(buttons.length > 1){ // check if all elements are coppie to buttons
+      return buttons.map((element) => {
+        return (
+          <NavButtons
+            key={shortid.generate()}
+            foreCastDay={element}
+            handleNavButton={this.props.handleNavButton}
+          />
+        );
+      });
+    }
   }
 
   /**
@@ -46,41 +41,3 @@ export class Nav extends Component {
 
 export default Nav;
 
-// const Nav = ({ forecast, handleNavbutton}) => {
-//   return (
-//     <section className="nav">{loadStatus(forecast, handleNavbutton)}</section>
-//   );
-// };
-
-// export default Nav;
-
-// import NavButtons from '../NavButtons.jsx';
-// import shortid from 'shortid';
-// import React from 'react';
-
-// const renderNavButtons = (array, handleNavButton) => {
-//   return array.map((element) => {
-//     return (
-//       <NavButtons
-//         key={shortid.generate()}
-//         foreCastDay={element}
-//         handleNavButton={handleNavButton}
-//       />
-//     );
-//   });
-// };
-
-// export default renderNavButtons;
-
-// /**
-//  * check if nav is loaded from api , renders the buttons else renders a circular progress bar
-//  */
-// const loadStatus = (forecast, handleNavButton) => {
-//   if (forecast) {
-//     return renderNavButtons(forecast, handleNavButton);
-//   } else {
-//     return <CircularProgress />;
-//   }
-// };
-
-// export default loadStatus;

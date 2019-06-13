@@ -1,19 +1,26 @@
 import Calendar from './Calendar';
 
 /**
+ * gets the day name based on the date valued parsed
+ */
+const getDateName = (element) => {
+  const newDay = new Calendar();
+  newDay.setNewDate(element.date);
+  return newDay.getDayName();
+};
+
+/**
  * takes the api data and create a new array of objects of data the app requires
  */
 const mapForeCastToDays = (array) => {
   return array.map((elements) => {
-    const getDay = new Calendar();
-    getDay.setNewDate(elements.date);
-    const dayName = getDay.getDayName();
+    const dayName = getDateName(elements);
     return {
       date: elements.date,
       condition: elements.day.condition,
       avgtemp: {
-        avgtemp_c: elements.day.avgtemp_c,
-        avgtemp_f: elements.day.avgtemp_f
+        temp_c: elements.day.avgtemp_c,
+        temp_f: elements.day.avgtemp_f
       },
       day: dayName
     };
