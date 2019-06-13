@@ -6,6 +6,7 @@ import Main from './Main.jsx';
 import Nav from './navComponents/Nav.jsx';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
 import mapCurrentData from '../helpers/mapCurrentData';
+import getTimeZoneData from '../helpers/getTimeZoneData';
 import '../scss/app.scss';
 
 class App extends React.Component {
@@ -19,23 +20,23 @@ class App extends React.Component {
   }
 
   /**
-   * fetches the weather based on the user geolocation data and sets the new state 
+   * fetches the weather based on the user geolocation data and sets the new state
    */
   componentDidMount = async () => {
     try {
-      const { coords } = await getCurrentPosition();
+      const { coords } = await getCurrentPosition(); // html geolocation 
       const { latitude: latt, longitude: long } = coords;
-      const response = await getWeatherData(latt, long);
+      const response = await getWeatherData(latt, long); // apixu weather data
+      const time = await getTimeZoneData(latt,long); // timeZoneDb data
       const { location, current, forecast } = response.data;
       const newCurrent = mapCurrentData(current);
       const newForeCast = mapForeCastToDays(forecast.forecastday);
-          console.log(current);
-
       this.setState({
         location,
-        todayWeather:newCurrent,
+        todayWeather: newCurrent,
         current: newCurrent,
-        forecast: newForeCast
+        forecast: newForeCast,
+        time
       });
     } catch (err) {
       console.log(err.message);
@@ -43,18 +44,22 @@ class App extends React.Component {
   };
 
   handleNavButton = (value) => {
-    if(value.day !== this.state.current.day){ // check if the current state needs rerendering 
+    if (value.day !== this.state.current.day) {
+      // check if the current state needs rerendering
       this.setState({
-        current:value
-      })
+        current: value
+      });
     }
   };
 
   render() {
     return (
       <section className="app">
-        <Header />
-        <Main current={this.state.current} country={this.state.location.country}/>
+        <Header time={this.state.time}/>
+        <Main
+          current={this.state.current}
+          country={this.state.location.country}
+        />
         <Nav
           forecast={this.state.forecast}
           current={this.state.todayWeather}

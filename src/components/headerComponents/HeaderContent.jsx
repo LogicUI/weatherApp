@@ -6,7 +6,7 @@ export class HeaderContent extends Component {
   renderHeaderData() {
     return (
       <React.Fragment>
-        <Clock />
+        <Clock time={this.props.time}/>
         <h1 className="is-size-5">GeoLocation Weather App</h1>
         <div className="control">
           <input

@@ -24,7 +24,7 @@ const mapForeCastToDays = (array) => {
       },
       day: dayName
     };
-  });
+  }).slice(1);
 };
 
 export default mapForeCastToDays;

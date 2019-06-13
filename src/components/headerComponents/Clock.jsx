@@ -1,6 +1,5 @@
 import React from 'react';
-import "../../scss/generalized.scss";
-
+import '../../scss/generalized.scss';
 
 /**
  * Shows the date and a clock that ticks every second
@@ -9,11 +8,11 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date().toLocaleTimeString()
+      time: this.props.time
     };
   }
   /**
-   * let the clock tick every 1 second 
+   * let the clock tick every 1 second
    * created intervalID for clearing later
    */
   componentDidMount() {
@@ -26,13 +25,49 @@ class Clock extends React.Component {
     clearInterval(this.intervalID);
   }
 
+  _updateTime(value) {
+    let time = value.split(':');
+
+    let [hours, mins, seconds] = time;
+
+    if (seconds < 59) {
+      seconds++;
+    } else {
+      seconds = 0;
+      if (mins < 59) {
+        mins++;
+      } else {
+        mins = 0;
+        if (hours < 23) {
+          hours++;
+        } else {
+          hours = 0;
+        }
+      }
+    }
+
+    if (!hours[0] && hours < 10) {
+      hours = `0${hours}`;
+    }
+
+    if (!mins[0] && mins < 10) {
+      mins = `0${mins}`;
+    }
+
+    if (!seconds[0] && seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+
+    return `${hours}:${mins}:${seconds}`;
+  }
+
   /**
    * changes to a new time
    */
   tick() {
-    this.setState({
-      time: new Date().toLocaleTimeString()
-    });
+    this.setState((prevState) => ({
+      time: this._updateTime(prevState.time)
+    }));
   }
 
   render() {
@@ -40,4 +75,4 @@ class Clock extends React.Component {
   }
 }
 
-export default Clock
+export default Clock;

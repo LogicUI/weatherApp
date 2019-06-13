@@ -1,7 +1,7 @@
 @import '../../node_modules/bulma/bulma.sass';
 
 .app {
-  background-image: url('../image/WeatherPhoto.jpeg');
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)),url('../image/weather.jpeg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
