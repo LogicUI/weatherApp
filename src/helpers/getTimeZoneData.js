@@ -1,5 +1,6 @@
 import timeZoneDb from '../../src/apis/timeZoneDb';
 
+
 const getTimeZone = async (latt, long) => {
   const response = await timeZoneDb.get('get-time-zone', {
     params: {
@@ -10,7 +11,9 @@ const getTimeZone = async (latt, long) => {
       format: 'json'
     }
   });
-  const data = await response.data.formatted.split(' ')[1];
+
+  
+  const data = response.data.zoneName;
   return data;
 };
 
