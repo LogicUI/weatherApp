@@ -29,6 +29,8 @@ class App extends React.Component {
       const { location, current, forecast } = response.data;
       const newCurrent = mapCurrentData(current);
       const newForeCast = mapForeCastToDays(forecast.forecastday);
+          console.log(current);
+
       this.setState({
         location,
         todayWeather:newCurrent,
@@ -41,7 +43,6 @@ class App extends React.Component {
   };
 
   handleNavButton = (value) => {
-
     if(value.day !== this.state.current.day){ // check if the current state needs rerendering 
       this.setState({
         current:value
@@ -52,8 +53,8 @@ class App extends React.Component {
   render() {
     return (
       <section className="app">
-        <Header country={this.state.location.country} />
-        <Main current={this.state.current} />
+        <Header />
+        <Main current={this.state.current} country={this.state.location.country}/>
         <Nav
           forecast={this.state.forecast}
           current={this.state.todayWeather}

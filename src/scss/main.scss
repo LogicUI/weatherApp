@@ -3,10 +3,21 @@
 .main {
   grid-area: content;
   @include flex-box(column);
-  min-height: 500px;
+
+  height: 100vh;
   color: white;
+  font-size: 1.5rem;
+  margin: 1rem 0;
 
   section {
     @include flex-box(column);
+
+    img {
+      width: 250px;
+    }
+
+    * {
+      margin-bottom: 1rem;
+    }
   }
 }

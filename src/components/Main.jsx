@@ -1,5 +1,4 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { StyledMain } from '../styled/StyledMain';
 import React, { Component } from 'react';
 import '../scss/main.scss';
 
@@ -10,11 +9,13 @@ export class Main extends Component {
 
     return (
       <React.Fragment>
-        <img src={icon} alt="this is a weather icon" />
-        <h1 className="is-size-4">{text}</h1>
         <section>
-          <h1 className="is-size-4">{temp_c}c</h1>
-          <h1 className="is-size-4"> {temp_f}f</h1>
+          <h1 className="is-size-3">{this.props.current.day}'s Weather</h1>
+          <img src={icon} alt="this is a weather icon" />
+          <h1>{this.props.country}</h1>
+          <h1>{text}</h1>
+          <h1>{temp_c} C</h1>
+          <h1> {temp_f} F</h1>
         </section>
       </React.Fragment>
     );
@@ -25,7 +26,7 @@ export class Main extends Component {
    */
   loadStatus = () => {
     const isLoaded = !!this.props.current; // ensures data is loaded
-    if (isLoaded) {  
+    if (isLoaded) {
       return this._renderData();
     } else {
       return <CircularProgress />;

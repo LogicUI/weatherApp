@@ -15,7 +15,6 @@ export class HeaderContent extends Component {
             placeholder="Search For Country "
           />
         </div>
-        {/* <CurrentDate /> */}
       </React.Fragment>
     );
   }
