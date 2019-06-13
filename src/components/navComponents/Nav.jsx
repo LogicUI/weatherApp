@@ -1,15 +1,14 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import NavButtons from './NavButtons.jsx';
 import shortid from 'shortid';
-
+import '../../scss/nav.scss';
 import React, { Component } from 'react';
 
 export class Nav extends Component {
-
-
   _renderNavButtons() {
     const buttons = [this.props.current, ...this.props.forecast]; // create a new array of buttons for today and forecast weather
-    if(buttons.length > 1){ // check if all elements are coppie to buttons
+    if (buttons.length > 1) {
+      // check if all elements are coppie to buttons
       return buttons.map((element) => {
         return (
           <NavButtons
@@ -35,9 +34,8 @@ export class Nav extends Component {
   };
 
   render() {
-    return <div>{this.loadStatus()}</div>;
+    return <section className="nav">{this.loadStatus()}</section>;
   }
 }
 
 export default Nav;
-

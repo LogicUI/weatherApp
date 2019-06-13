@@ -1,7 +1,16 @@
-
 .nav {
   grid-area: nav;
   display: grid;
-  grid-auto-rows: 1fr;
-  cursor:pointer;
+  grid-template-columns: repeat(auto-fit, minMax(150px, 1fr));
+  cursor: pointer;
+
+  section {
+      padding:1rem;
+
+      img {
+          margin-bottom:1rem;
+      }
+
+      
+  }
 }
