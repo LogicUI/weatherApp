@@ -12,8 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: {},
-      forecast: null,
+      current: 0,
+      forecast: [],
       location: {}
     };
   }
@@ -26,7 +26,6 @@ class App extends React.Component {
       const { location, current, forecast } = response.data;
       const newForeCast = mapForeCastToDays(forecast.forecastday);
       const newCurrent = mapCurrentData(current);
-      console.log(current);
       this.setState({
         location,
         current: newCurrent,
@@ -44,7 +43,7 @@ class App extends React.Component {
         <Main current={this.state.current} />
         <Nav
           forecast={this.state.forecast}
-          current={this.state.current.condition}
+          current={this.state.current}
         />
       </section>
     );

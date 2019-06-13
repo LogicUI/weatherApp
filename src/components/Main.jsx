@@ -1,7 +1,7 @@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StyledMain } from '../styled/StyledMain';
 import React, { Component } from 'react';
-import "../scss/main.scss"
+import '../scss/main.scss';
 
 export class Main extends Component {
   _renderData = () => {
@@ -20,11 +20,12 @@ export class Main extends Component {
     );
   };
 
+  /**
+   * checks if props data is updated to api values returns the render data else return a loading spinner
+   */
   loadStatus = () => {
-    const isLoaded =
-      !!this.props.current.condition || !!this.props.current.avgtemp; // ensures data is loaded
-    if (isLoaded) {
-      // if the component picks up the props data
+    const isLoaded = !!this.props.current; // ensures data is loaded
+    if (isLoaded) {  
       return this._renderData();
     } else {
       return <CircularProgress />;

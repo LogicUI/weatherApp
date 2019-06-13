@@ -31,7 +31,8 @@ export class Nav extends Component {
    * check if the component receieve the prop for forecast render the buttons else load a circular progress
    */
   loadStatus = () => {
-    if (this.props.forecast) {
+    const isloaded = !!this.props.forecast;
+    if (isloaded) {
       return this._renderNavButtons();
     } else {
       return <CircularProgress />;
