@@ -3,10 +3,13 @@
 .header {
   grid-area: header;
   @include flex-box(column);
-  padding: 2rem;
   justify-content: space-evenly;
+  padding: 2rem;
+  height: 250px;
+
 
   @include media-breakpoint(sm) {
     flex-direction: row;
+    height: 85px;
   }
 }

@@ -1,7 +1,10 @@
 @import '../../node_modules/bulma/bulma.sass';
 
 .app {
-  height: 100vh;
+  background-image: url('../image/WeatherPhoto.jpeg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   display: grid;
   grid-template-areas:
     'header'

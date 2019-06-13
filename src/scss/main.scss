@@ -1,10 +1,12 @@
-@import "./mixins";
+@import './mixins';
 
 .main {
-    grid-area:content;
-    @include flex-box(column);
+  grid-area: content;
+  @include flex-box(column);
+  min-height: 500px;
+  color: white;
 
-    section {
-        @include flex-box(column);
-    }
+  section {
+    @include flex-box(column);
+  }
 }

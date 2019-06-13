@@ -11,10 +11,10 @@ export class Main extends Component {
     return (
       <React.Fragment>
         <img src={icon} alt="this is a weather icon" />
-        <h1>{text}</h1>
+        <h1 className="is-size-4">{text}</h1>
         <section>
-          <h1>{temp_c}c</h1>
-          <h1> {temp_f}f</h1>
+          <h1 className="is-size-4">{temp_c}c</h1>
+          <h1 className="is-size-4"> {temp_f}f</h1>
         </section>
       </React.Fragment>
     );

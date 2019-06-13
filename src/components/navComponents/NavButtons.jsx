@@ -15,7 +15,7 @@ export class NavButtons extends Component {
     return (
       <section className="flex-middle" onClick={this.handleOnClick}>
         <img src={this.props.foreCastDay.condition.icon} alt="shows the weather"/>
-        <h1>{this.props.foreCastDay.day}</h1>
+        <h1 className="is-size-4">{this.props.foreCastDay.day}</h1>
       </section>
     )
   }

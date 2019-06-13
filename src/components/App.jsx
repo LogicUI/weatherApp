@@ -18,6 +18,9 @@ class App extends React.Component {
     };
   }
 
+  /**
+   * fetches the weather based on the user geolocation data and sets the new state 
+   */
   componentDidMount = async () => {
     try {
       const { coords } = await getCurrentPosition();
@@ -38,9 +41,12 @@ class App extends React.Component {
   };
 
   handleNavButton = (value) => {
+
+    if(value.day !== this.state.current.day){ // check if the current state needs rerendering 
       this.setState({
         current:value
       })
+    }
   };
 
   render() {
