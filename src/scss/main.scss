@@ -1,0 +1,10 @@
+@import "./mixins";
+
+.main {
+    grid-area:content;
+    @include flex-box(column);
+
+    section {
+        @include flex-box(column);
+    }
+}

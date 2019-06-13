@@ -5,8 +5,8 @@ import Header from './headerComponents/Header.jsx';
 import Main from './Main.jsx';
 import Nav from './navComponents/Nav.jsx';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
-import "../scss/app.scss";
-
+import mapCurrentData from '../helpers/mapCurrentData';
+import '../scss/app.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,10 +25,11 @@ class App extends React.Component {
       const response = await getWeatherData(latt, long);
       const { location, current, forecast } = response.data;
       const newForeCast = mapForeCastToDays(forecast.forecastday);
-      console.log(newForeCast);
+      const newCurrent = mapCurrentData(current);
+      console.log(current);
       this.setState({
         location,
-        current,
+        current: newCurrent,
         forecast: newForeCast
       });
     } catch (err) {
@@ -40,8 +41,11 @@ class App extends React.Component {
     return (
       <section className="app">
         <Header country={this.state.location.country} />
-        <Main current={this.state.current.condition} />
-        <Nav forecast={this.state.forecast} current={this.state.current.condition} />
+        <Main current={this.state.current} />
+        <Nav
+          forecast={this.state.forecast}
+          current={this.state.current.condition}
+        />
       </section>
     );
   }

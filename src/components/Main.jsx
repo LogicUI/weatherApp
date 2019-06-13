@@ -1,24 +1,39 @@
-import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { StyledMain } from '../styled/StyledMain';
+import React, { Component } from 'react';
+import "../scss/main.scss"
 
-const loadStatus = (current) => {
-  if (current) {
-    const { text, icon } = current;
+export class Main extends Component {
+  _renderData = () => {
+    const { icon, text } = this.props.current.condition;
+    const { temp_c, temp_f } = this.props.current.avgtemp;
+
     return (
       <React.Fragment>
-        <img src={icon} alt="this is an weather icon" />
+        <img src={icon} alt="this is a weather icon" />
         <h1>{text}</h1>
+        <section>
+          <h1>{temp_c}c</h1>
+          <h1> {temp_f}f</h1>
+        </section>
       </React.Fragment>
     );
-  } else {
-    return <CircularProgress />;
-  }
-};
+  };
 
-const Main = ({ current }) => {
-  return <StyledMain column>{loadStatus(current)}</StyledMain>;
-};
+  loadStatus = () => {
+    const isLoaded =
+      !!this.props.current.condition || !!this.props.current.avgtemp; // ensures data is loaded
+    if (isLoaded) {
+      // if the component picks up the props data
+      return this._renderData();
+    } else {
+      return <CircularProgress />;
+    }
+  };
+
+  render() {
+    return <section className="main">{this.loadStatus()}</section>;
+  }
+}
 
 export default Main;
-
