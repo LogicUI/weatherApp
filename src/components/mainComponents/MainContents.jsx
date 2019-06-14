@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import '../../scss/main.scss';
-import { CSSTransitionGroup } from 'react-transition-group' 
 
 
-class MainConents extends Component {
+class MainContents extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,6 +11,9 @@ class MainConents extends Component {
     };
   }
 
+  /**
+   * changes the temperature to celcius when celcius button is clicked
+   */
   handleOnClickCelcius = () => {
     if (this.props.current.avgtemp.temp_c !== this.state.temperature) {
       this.setState({
@@ -21,6 +23,9 @@ class MainConents extends Component {
     }
   };
 
+  /**
+   * changes the temperature to farenheit when the faren button is clicked
+   */
   handleOnClickFarenheit = () => {
     if (this.props.current.avgtemp.temp_f !== this.state.temperature) {
       this.setState({
@@ -39,7 +44,7 @@ class MainConents extends Component {
         <img src={icon} alt="this is a weather icon" />
         <h1>{this.props.country}</h1>
         <h1>{text}</h1>
-        <h1>{this.state.temperature}</h1>
+        <h1 data-testid="temperature">{this.state.temperature}</h1>
         <section className="buttons has-addons">
           <span
             className={`button ${
@@ -63,4 +68,4 @@ class MainConents extends Component {
   }
 }
 
-export default MainConents;
+export default MainContents;

@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 
 class Main extends Component {
+  // check content loaded 
   loadStatus() {
     const isLoaded = !!this.props.current; // ensures data is loaded
     if (isLoaded) {
