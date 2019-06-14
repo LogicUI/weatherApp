@@ -1,7 +1,5 @@
-import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { Component } from 'react';
 import HeaderContent from './HeaderContent.jsx';
-import '../../scss/header.scss';
 
 export class Header extends Component {
   /**
@@ -9,15 +7,13 @@ export class Header extends Component {
    */
   loadStatus() {
     if (this.props.time) {
-      return <HeaderContent time={this.props.time}/>;
-    } else {
-      return <CircularProgress />;
-    }
+      return <HeaderContent time={this.props.time} search={this.props.search}/>;
+    } 
   }
 
   render() {
     return (
-      <section className="header navbar is-dark">{this.loadStatus()}</section>
+      <React.Fragment >{this.loadStatus()}</React.Fragment>
     );
   }
 }

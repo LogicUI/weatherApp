@@ -6,7 +6,7 @@ import Main from './mainComponents/Main.jsx';
 import Nav from './navComponents/Nav.jsx';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
 import mapCurrentData from '../helpers/mapCurrentData';
-import getTimeZoneData from '../helpers/getTimeZoneData';
+import searchWeatherData  from '../helpers/searchWeatherData';
 import '../scss/app.scss';
 
 class App extends React.Component {
@@ -20,29 +20,36 @@ class App extends React.Component {
   }
 
   /**
+   * render the content related to weather data 
+   */
+  _renderContent = ({ location, current, forecast }) => {
+    const newCurrent = mapCurrentData(current); // map data to usable data
+    const newForeCast = mapForeCastToDays(forecast.forecastday);
+    this.setState({
+      location,
+      todayWeather: newCurrent,
+      current: newCurrent,
+      forecast: newForeCast,
+      time: location.tz_id
+    });
+  };
+  /**
    * fetches the weather based on the user geolocation data and sets the new state
    */
   componentDidMount = async () => {
     try {
-      const { coords } = await getCurrentPosition(); // html geolocation 
+      const { coords } = await getCurrentPosition(); // html geolocation
       const { latitude: latt, longitude: long } = coords;
       const response = await getWeatherData(latt, long); // apixu weather data
-      const time = await getTimeZoneData(latt,long); // timeZoneDb data
-      const { location, current, forecast } = response.data;
-      const newCurrent = mapCurrentData(current); // map data to usable data 
-      const newForeCast = mapForeCastToDays(forecast.forecastday);
-      this.setState({
-        location,
-        todayWeather: newCurrent,
-        current: newCurrent,
-        forecast: newForeCast,
-        time
-      });
+      this._renderContent(response);
     } catch (err) {
-      console.log(err.message);
+      alert("unable to fetch weather data ensure that you accept permissions")
     }
   };
 
+  /**
+   * changes the main content to show the weather on that day based on the nav button clicked
+   */
   handleNavButton = (value) => {
     if (value.day !== this.state.current.day) {
       // check if the current state needs rerendering
@@ -52,10 +59,22 @@ class App extends React.Component {
     }
   };
 
+  /**
+   * changes the weather app country based on the input search term 
+   */
+  handleSearchButton = async (value) => {
+    try {
+      const response = await searchWeatherData(value);
+      this._renderContent(response);
+    } catch (err) {
+      alert(`input of ${value} did not find any results`);
+    }
+  };
+
   render() {
     return (
       <section className="app">
-        <Header time={this.state.time}/>
+        <Header time={this.state.time} search={this.handleSearchButton} />
         <Main
           current={this.state.current}
           country={this.state.location.country}

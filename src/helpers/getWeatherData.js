@@ -13,7 +13,7 @@ const getWeatherData = async (latt, long) => {
       days: 5
     }
   });
-  return response;
+  return response.data;
 };
 
 export default getWeatherData;

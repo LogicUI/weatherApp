@@ -1,4 +1,3 @@
-import CircularProgress from '@material-ui/core/CircularProgress';
 import NavButtons from './NavButtons.jsx';
 import shortid from 'shortid';
 import '../../scss/nav.scss';
@@ -28,8 +27,6 @@ export class Nav extends Component {
     const isloaded = !!this.props.forecast;
     if (isloaded) {
       return this._renderNavButtons();
-    } else {
-      return <CircularProgress />;
     }
   };
 

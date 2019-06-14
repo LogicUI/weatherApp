@@ -16,7 +16,6 @@ const mapForeCastToDays = (array) => {
   return array.map((elements) => {
     const dayName = getDateName(elements);
     return {
-      date: elements.date,
       condition: elements.day.condition,
       avgtemp: {
         temp_c: elements.day.avgtemp_c,
