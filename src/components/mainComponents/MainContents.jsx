@@ -38,7 +38,7 @@ class MainConents extends Component {
         <h1>{this.props.country}</h1>
         <h1>{text}</h1>
         <h1>{this.state.temperature}</h1>
-        <div className="buttons has-addons">
+        <section className="buttons has-addons">
           <span
             className={`button ${
               this.state.changed ? 'is-success is-selected' : ''
@@ -55,7 +55,7 @@ class MainConents extends Component {
           >
             Farenheit
           </span>
-        </div>
+        </section>
       </section>
     );
   }
