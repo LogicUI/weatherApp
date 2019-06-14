@@ -4,10 +4,11 @@
   grid-area: nav;
   display: grid;
   grid-template-columns: repeat(auto-fit, minMax(150px, 1fr));
-  cursor: pointer;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
+
   section {
+    cursor: pointer;
     padding: 1rem;
     color: $danger;
     transition: all 0.5s;
@@ -23,3 +24,4 @@
     }
   }
 }
+

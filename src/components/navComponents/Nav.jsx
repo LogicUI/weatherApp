@@ -3,6 +3,8 @@ import shortid from 'shortid';
 import '../../scss/nav.scss';
 import React, { Component } from 'react';
 
+
+
 export class Nav extends Component {
   _renderNavButtons() {
     const buttons = [this.props.current, ...this.props.forecast]; // create a new array of buttons for today and forecast weather
@@ -10,11 +12,14 @@ export class Nav extends Component {
       // check if all elements are coppie to buttons
       return buttons.map((element) => {
         return (
+
           <NavButtons
             key={shortid.generate()}
             foreCastDay={element}
             handleNavButton={this.props.handleNavButton}
           />
+
+
         );
       });
     }

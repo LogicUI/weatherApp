@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../scss/main.scss';
+import { CSSTransitionGroup } from 'react-transition-group' 
+
 
 class MainConents extends Component {
   constructor(props) {
