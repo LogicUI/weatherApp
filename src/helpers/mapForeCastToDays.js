@@ -6,7 +6,7 @@ import getDayName from "./getDayName";
  */
 const mapForeCastToDays = (array) => {
   return array.map((elements) => {
-    const dayName = getDayName(elements);
+    const dayName = getDayName(elements.date);
     return {
       condition: elements.day.condition,
       avgtemp: {
