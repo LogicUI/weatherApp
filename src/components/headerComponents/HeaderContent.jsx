@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Clock from './Clock.jsx';
 import '../../scss/header.scss';
-import capitalized from "../../helpers/captializeFirst";
+import capitalized from '../../helpers/captializeFirst';
 
 /**
  * displays the time , title and search bar on the headernavbar
@@ -19,26 +19,24 @@ class HeaderContent extends Component {
    */
   handleOnChange = (event) => {
     this.setState({
-      term:event.target.value
-    })
+      term: event.target.value
+    });
   };
 
   /**
-   * submits the input for the name of country the user want to search the data from 
+   * submits the input for the name of country the user want to search the data from
    */
   onFormSubmit = (event) => {
     event.preventDefault();
     this.props.search(capitalized(this.state.term));
     this.setState({
-      term:""
-    })
-  }
-  
-
+      term: ''
+    });
+  };
 
   render() {
-    return(      
- <section className="header navbar is-dark">
+    return (
+      <section className="header navbar is-dark">
         <Clock time={this.props.time} />
         <h1 className="is-size-5">GeoLocation Weather App</h1>
         <form className="control has-icons-right" onSubmit={this.onFormSubmit}>
@@ -54,8 +52,6 @@ class HeaderContent extends Component {
           </span>
         </form>
       </section>
-
-
     );
   }
 }

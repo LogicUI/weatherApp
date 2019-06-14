@@ -1,11 +1,12 @@
-import getDayName from "./getDayName";
-
+import getDayName from './getDayName';
 
 /**
  * takes the forecast  data from the api and extract data into a new array of objects
  */
 const mapForeCastToDays = (array) => {
-  return array.map((elements) => {
+  // slice the forecast data from the following day as the first item is the current forecasted weather
+  const neededData = array.slice(1);
+  return neededData.map((elements) => {
     const dayName = getDayName(elements.date);
     return {
       condition: elements.day.condition,
@@ -15,7 +16,7 @@ const mapForeCastToDays = (array) => {
       },
       day: dayName
     };
-  }).slice(1);
+  });
 };
 
 export default mapForeCastToDays;

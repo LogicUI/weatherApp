@@ -10,7 +10,7 @@ import searchWeatherData  from '../helpers/searchWeatherData';
 import '../scss/app.scss';
 
 /**
- * the parrent component that fetches data from the api
+ * the parent component that fetches data from the api
  */
 class App extends React.Component {
   constructor(props) {

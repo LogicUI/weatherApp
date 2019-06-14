@@ -5,6 +5,8 @@
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+      grid-gap: 10px;
+
   display: grid;
   grid-template-areas:
     'header'
@@ -23,7 +25,6 @@
       'nav content content';
     grid-template-columns: 200px 1fr 200px;
     grid-template-rows: auto 1fr auto;
-    grid-gap: 10px;
     font-family: 'Merriweather', serif;
   }
 }
