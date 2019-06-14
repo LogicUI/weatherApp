@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import MainContents from './MainContents.jsx';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-
+/**
+ * main component which shows details about the weather
+ */
 class Main extends Component {
-  // check content loaded 
+
+  /**
+   * check if props are passed correctly by short circuit , returns the maincontent component if props
+   * are passed correctly
+   */
   loadStatus() {
-    const isLoaded = !!this.props.current; // ensures data is loaded
-    if (isLoaded) {
-      return <MainContents current={this.props.current} country={this.props.country} />;
-    } 
+      return this.props.current && <MainContents current={this.props.current} country={this.props.country} />;
   }
 
   render() {
@@ -18,3 +21,4 @@ class Main extends Component {
 }
 
 export default Main;
+

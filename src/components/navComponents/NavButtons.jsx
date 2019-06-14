@@ -1,9 +1,13 @@
 import "../../scss/generalized.scss";
 import React, { Component } from 'react'
 
-
+/**
+ * let each navbutton be clickable for the user to get more info from the current forecasted data
+ */
 export class NavButtons extends Component {
-
+  /**
+   * returns the forecast for the currentday if the user clicks on the nav button 
+   */
   handleOnClick = () => {
     this.props.handleNavButton(this.props.foreCastDay);
   }

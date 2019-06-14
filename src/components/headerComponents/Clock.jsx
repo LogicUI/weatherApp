@@ -5,7 +5,7 @@ import 'moment-timezone';
 
 
 /**
- * Shows the date and a clock that ticks every second
+ * Shows the date and a clock that ticks every second based on the country timezone
  */
 class Clock extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Clock extends React.Component {
 
 
   /**
-   * changes to a new time
+   * renders a new clock that ticks 1 second later 
    */
   tick() {
     this.setState({

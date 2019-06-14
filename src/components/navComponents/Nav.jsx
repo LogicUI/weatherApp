@@ -4,12 +4,23 @@ import '../../scss/nav.scss';
 import React, { Component } from 'react';
 
 
-
+/**
+ * displays the nav on the side showing the forecasted data , the user is able to get more info
+ * from the navbutton they clicked on 
+ */
 export class Nav extends Component {
+
+
+
+  /**
+   * render each nav buttons for the forecasted weather
+   * takes the current day and forecasted day
+   */
   _renderNavButtons() {
-    const buttons = [this.props.current, ...this.props.forecast]; // create a new array of buttons for today and forecast weather
+    // create a new array of buttons using today and forecasted weather
+    const buttons = [this.props.current, ...this.props.forecast]; 
     if (buttons.length > 1) {
-      // check if all elements are coppie to buttons
+      // check if buttons array is not empty
       return buttons.map((element) => {
         return (
 
@@ -26,13 +37,10 @@ export class Nav extends Component {
   }
 
   /**
-   * check if the component receieve the prop for forecast render the buttons else load a circular progress
+   * short circuit evaluate if props has been received sucessfully and render the nav buttons
    */
   loadStatus = () => {
-    const isloaded = !!this.props.forecast;
-    if (isloaded) {
-      return this._renderNavButtons();
-    }
+    return this.props.forecast && this._renderNavButtons();
   };
 
   render() {

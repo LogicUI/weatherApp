@@ -1,13 +1,12 @@
 import Calendar from './Calendar';
 
-/**
- * gets the day name based on the date valued parsed
- */
-const getDateName = (element) => {
-  const newDay = new Calendar();
-  newDay.setNewDate(element.date);
-  return newDay.getDayName();
-};
+// /**
+//  * gets the day name based on the date valued parsed
+//  */
+// const getDateName = (element) => {
+//   const newDay = new Calendar(element.date);
+//   return newDay.getDayName();
+// };
 
 /**
  * takes the api data and create a new array of objects of data the app requires
