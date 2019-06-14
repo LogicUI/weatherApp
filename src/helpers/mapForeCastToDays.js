@@ -1,19 +1,12 @@
-import Calendar from './Calendar';
+import getDayName from "./getDayName";
 
-// /**
-//  * gets the day name based on the date valued parsed
-//  */
-// const getDateName = (element) => {
-//   const newDay = new Calendar(element.date);
-//   return newDay.getDayName();
-// };
 
 /**
- * takes the api data and create a new array of objects of data the app requires
+ * takes the forecast  data from the api and extract data into a new array of objects
  */
 const mapForeCastToDays = (array) => {
   return array.map((elements) => {
-    const dayName = getDateName(elements);
+    const dayName = getDayName(elements);
     return {
       condition: elements.day.condition,
       avgtemp: {
