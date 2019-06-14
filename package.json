@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "jest-dom": "^3.5.0",
     "moxios": "^0.4.0",
     "react-testing-library": "^8.0.1",

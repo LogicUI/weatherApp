@@ -2,7 +2,7 @@ import React from 'react';
 import getWeatherData from '../helpers/getWeatherData';
 import getCurrentPosition from '../apis/getCurrentPosition';
 import Header from './headerComponents/Header.jsx';
-import Main from './Main.jsx';
+import Main from './mainComponents/Main.jsx';
 import Nav from './navComponents/Nav.jsx';
 import mapForeCastToDays from '../helpers/mapForeCastToDays';
 import mapCurrentData from '../helpers/mapCurrentData';
@@ -29,7 +29,7 @@ class App extends React.Component {
       const response = await getWeatherData(latt, long); // apixu weather data
       const time = await getTimeZoneData(latt,long); // timeZoneDb data
       const { location, current, forecast } = response.data;
-      const newCurrent = mapCurrentData(current);
+      const newCurrent = mapCurrentData(current); // map data to usable data 
       const newForeCast = mapForeCastToDays(forecast.forecastday);
       this.setState({
         location,

@@ -9,15 +9,19 @@
   font-size: 1.5rem;
   margin: 1rem 0;
 
-  section {
-    @include flex-box(column);
+  img {
+    width: 250px;
+  }
 
-    img {
-      width: 250px;
-    }
+  * {
+    margin-bottom: 1rem;
+  }
 
-    * {
-      margin-bottom: 1rem;
-    }
+  span {
+      transition: all 0.5s;
+
+      &:active {
+          transform:translateY(4px);
+      }
   }
 }
