@@ -4,9 +4,6 @@ import moment from 'moment';
 import 'moment-timezone';
 
 
-//   console.log(moment()
-//     .tz(response.data.zoneName)
-//     .format('LTS'))
 /**
  * Shows the date and a clock that ticks every second
  */

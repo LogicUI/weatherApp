@@ -2,22 +2,25 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { Component } from 'react';
 import '../scss/main.scss';
 
-export class Main extends Component {
+class Main extends Component {
+
   _renderData = () => {
     const { icon, text } = this.props.current.condition;
     const { temp_c, temp_f } = this.props.current.avgtemp;
 
     return (
-      <React.Fragment>
-        <section>
-          <h1 className="is-size-3">{this.props.current.day}'s Weather</h1>
-          <img src={icon} alt="this is a weather icon" />
-          <h1>{this.props.country}</h1>
-          <h1>{text}</h1>
-          <h1>{temp_c} C</h1>
-          <h1> {temp_f} F</h1>
-        </section>
-      </React.Fragment>
+      <section>
+        <h1 className="is-size-3">{this.props.current.day}'s Weather</h1>
+        <img src={icon} alt="this is a weather icon" />
+        <h1>{this.props.country}</h1>
+        <h1>{text}</h1>
+        <h1>{temp_c} °C</h1>
+        <h1> {temp_f} F</h1>
+        <div className="buttons has-addons">
+          <span className="button" >Celsius</span>
+          <span className="button is-success is-selected">farenheit</span>
+        </div>
+      </section>
     );
   };
 

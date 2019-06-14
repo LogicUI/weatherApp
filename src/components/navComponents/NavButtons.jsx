@@ -1,5 +1,3 @@
-// import React from 'react';
-// import Calendar from '../../helpers/Calendar';
 import "../../scss/generalized.scss";
 import React, { Component } from 'react'
 
@@ -9,7 +7,6 @@ export class NavButtons extends Component {
   handleOnClick = () => {
     this.props.handleNavButton(this.props.foreCastDay);
   }
-
 
   render() {
     return (
