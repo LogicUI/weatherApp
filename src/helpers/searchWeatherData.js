@@ -1,5 +1,4 @@
 import apixu from '../apis/apixu';
-import validateSearch from './validateSearch';
 
 /**
  * fetches the  forecasted api data using the country name as the query
@@ -14,11 +13,7 @@ const searchWeatherData = async (country) => {
     }
   });
 
-  if (validateSearch(response, country)) {
-    return response.data;
-  } else {
-    throw new Error(`input of ${country} did not find any results`);
-  }
+  return response.data;
 };
 
 export default searchWeatherData;
