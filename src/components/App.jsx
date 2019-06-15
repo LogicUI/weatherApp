@@ -32,7 +32,7 @@ class App extends React.Component {
       const response = await getWeatherData(latt, long); // apixu weather data
       this._setNewState(response);
     } catch (err) {
-      alert("unable to fetch weather data ensure that you accept permissions")
+      alert("unable to fetch weather data ensure that you accept permissions");
     }
   };
   /**
@@ -80,6 +80,7 @@ class App extends React.Component {
   };
 
   render() {
+
     return (
       <section className="app">
         <Header time={this.state.time} search={this.handleSearchButton} />

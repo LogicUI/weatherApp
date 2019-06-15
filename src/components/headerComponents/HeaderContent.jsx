@@ -48,6 +48,7 @@ class HeaderContent extends Component {
             placeholder="Search For Country "
             value={this.state.term}
             onChange={this.handleOnChange}
+            data-testid="input-test"
           />
           <span className="icon is-small is-right">
             <i className="fas fa-search" />

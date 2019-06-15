@@ -34,6 +34,12 @@ describe('testing of main component', () => {
     expect(today).toBe("Today's Weather");
   });
 
+  it('should return the weather icon correctly', () => {
+    const { getByTestId } = render(<MainContents current={current} />);
+    const weathericon = getByTestId('icon').getAttribute('src');
+    expect(weathericon).toBe('//cdn.apixu.com/weather/64x64/day/116.png');
+  });
+
   it('should render the weather correctly', () => {
     const { getByTestId } = render(<MainContents current={current} />);
     const weather = getByTestId('weather-forecast').textContent;

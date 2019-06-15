@@ -77,7 +77,7 @@ class MainContents extends Component {
     return (
       <React.Fragment>
         <h1 className="is-size-3" data-testid="weather-day">{this.props.current.day}'s Weather</h1>
-        <img src={icon} alt="this is a weather icon" />
+        <img data-testid="icon" src={icon} alt="this is a weather icon" />
         <h1>{this.props.country}</h1>
         <h1 data-testid="weather-forecast">{text}</h1>
         <h1 data-testid="temperature">{this.state.temperature}</h1>
