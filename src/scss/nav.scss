@@ -25,7 +25,9 @@
     }
 
     @include media-breakpoint(sm) {
-      transform: scale(1.1);
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
