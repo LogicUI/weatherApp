@@ -1,7 +1,10 @@
 @import '../../node_modules/bulma/bulma.sass';
 
+/**
+* main component layout using grids
+*/
 .app {
-  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)),url('../image/weather.jpeg');
+  background: linear-gradient(rgba(20, 20, 20, 0.3), rgba(20, 20, 20, 0.3)),url('../image/weather.jpeg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

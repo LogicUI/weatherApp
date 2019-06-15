@@ -27,18 +27,19 @@ class HeaderContent extends Component {
    * submits the input for the name of country the user want to search the data from
    */
   onFormSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent refresh of page 
     this.props.search(capitalized(this.state.term));
     this.setState({
       term: ''
     });
   };
 
-  render() {
-    return (
-      <section className="header navbar is-dark">
-        <Clock time={this.props.time} />
-        <h1 className="is-size-5">GeoLocation Weather App</h1>
+  /**
+   * renders the input field where the user can search which country to view the weather 
+   */
+  renderFormInput(){
+    return(
+      <React.Fragment>
         <form className="control has-icons-right" onSubmit={this.onFormSubmit}>
           <input
             className="input"
@@ -51,6 +52,16 @@ class HeaderContent extends Component {
             <i className="fas fa-search" />
           </span>
         </form>
+      </React.Fragment>
+    )
+  }
+
+  render() {
+    return (
+      <section className="header navbar is-dark">
+        <Clock time={this.props.time} />
+        <h1 className="is-size-5">GeoLocation Weather App</h1>
+        {this.renderFormInput()}
       </section>
     );
   }

@@ -1,3 +1,7 @@
+
+/**
+* media breakpoint for the size of the screen 
+*/
 @mixin media-breakpoint($point) {
   $xs: '(min-width: 576px)';
   $sm: '(min-width: 768px)';

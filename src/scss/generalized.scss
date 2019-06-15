@@ -1,5 +1,5 @@
 @import './mixins';
-
+// flex content to the middle with flex direction of column
 .flex-middle {
   @include flex-box(column);
 }

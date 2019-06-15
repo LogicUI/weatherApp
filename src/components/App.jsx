@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   /**
-   * render the content related to weather data 
+   * gets the response from the weatherapi and set the values to state 
    * @param location the name of country 
    * @param current the current weather data 
    * @param forecast forecasted weather data
@@ -80,6 +80,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.current);
     return (
       <section className="app">
         <Header time={this.state.time} search={this.handleSearchButton} />

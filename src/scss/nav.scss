@@ -1,5 +1,5 @@
 @import '../../node_modules/bulma/sass/utilities/_all.sass';
-
+@import './mixins';
 .nav {
   grid-area: nav;
   display: grid;
@@ -13,7 +13,7 @@
     color: $danger;
     transition: all 0.5s;
     border-radius: inherit;
-
+    box-shadow: 6px 6px 5px -5px rgba(0, 0, 0, 0.25);
     img {
       margin-bottom: 1rem;
     }
@@ -21,7 +21,11 @@
     &:hover {
       background-color: $grey-lighter;
       color: lighten($danger, 10%);
+      box-shadow: 6px 6px 15px -5px rgba(0, 0, 0, 0.25);
+    }
+
+    @include media-breakpoint(sm) {
+      transform: scale(1.1);
     }
   }
 }
-

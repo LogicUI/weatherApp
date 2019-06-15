@@ -6,13 +6,15 @@
   justify-content: space-evenly;
   padding: 2rem;
   height: 250px;
-
-  input {
-    cursor: pointer;
-  }
-
+  
   @include media-breakpoint(sm) {
     flex-direction: row;
     height: 85px;
   }
+  
+  input {
+    cursor: pointer;
+  }
+
 }
+
