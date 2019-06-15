@@ -1,9 +1,9 @@
 /**
  * gets the day name based on the date passed in
+ * used a closure so that the days array dont get reinstationate in each function call 
  * @param {*} value date value to pass
  */
-const getDayName = (value) => {
-  const date = new Date(value);
+const daysName = () => {
   const Days = [
     'Sunday',
     'Monday',
@@ -13,7 +13,12 @@ const getDayName = (value) => {
     'Friday',
     'Saturday'
   ];
-  return Days[date.getDay()];
+  return (value) => {
+    const date = new Date(value);
+    return Days[date.getDay()];
+  }
 };
+
+const getDayName = daysName();
 
 export default getDayName;

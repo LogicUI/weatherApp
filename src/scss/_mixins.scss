@@ -31,7 +31,9 @@
     }
   }
 }
-
+/**
+* flex to center 
+*/
 @mixin flex-box($direction) {
   display: flex;
   flex-direction: $direction;

@@ -2,6 +2,7 @@ import getDayName from './getDayName';
 
 /**
  * takes the forecast  data from the api and extract data into a new array of objects
+ * @param array array of objects containing forecast details 
  */
 const mapForeCastToDays = (array) => {
   // slice the forecast data from the following day as the first item is the current forecasted weather

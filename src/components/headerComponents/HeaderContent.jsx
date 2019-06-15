@@ -25,6 +25,7 @@ class HeaderContent extends Component {
 
   /**
    * submits the input for the name of country the user want to search the data from
+   * 
    */
   onFormSubmit = (event) => {
     event.preventDefault(); // prevent refresh of page 

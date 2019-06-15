@@ -23,6 +23,19 @@ class App extends React.Component {
   }
 
   /**
+   * fetches the weather based on the user geolocation data and sets the new state
+   */
+  componentDidMount = async () => {
+    try {
+      const { coords } = await getCurrentPosition(); // html geolocation
+      const { latitude: latt, longitude: long } = coords;
+      const response = await getWeatherData(latt, long); // apixu weather data
+      this._setNewState(response);
+    } catch (err) {
+      alert("unable to fetch weather data ensure that you accept permissions")
+    }
+  };
+  /**
    * gets the response from the weatherapi and set the values to state 
    * @param location the name of country 
    * @param current the current weather data 
@@ -40,19 +53,6 @@ class App extends React.Component {
     });
   };
 
-  /**
-   * fetches the weather based on the user geolocation data and sets the new state
-   */
-  componentDidMount = async () => {
-    try {
-      const { coords } = await getCurrentPosition(); // html geolocation
-      const { latitude: latt, longitude: long } = coords;
-      const response = await getWeatherData(latt, long); // apixu weather data
-      this._setNewState(response);
-    } catch (err) {
-      alert("unable to fetch weather data ensure that you accept permissions")
-    }
-  };
 
   /**
    * changes the main content to show weather information for that particular day based on which nav button clicked
