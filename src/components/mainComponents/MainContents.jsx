@@ -51,7 +51,7 @@ class MainContents extends Component {
       <section className="buttons has-addons">
         <span
           className={`button ${
-            this.state.changed ? 'is-success is-selected' : ''
+            this.state.changed && 'is-success is-selected'
           }`}
           onClick={this.handleOnClickCelcius}
         >
@@ -59,7 +59,7 @@ class MainContents extends Component {
         </span>
         <span
           className={`button ${
-            this.state.changed ? '' : 'is-success is-selected'
+            this.state.changed || 'is-success is-selected'
           }`}
           onClick={this.handleOnClickFarenheit}
         >
