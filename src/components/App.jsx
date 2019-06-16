@@ -80,7 +80,6 @@ class App extends React.Component {
   };
 
   render() {
-
     return (
       <section className="app">
         <Header time={this.state.time} search={this.handleSearchButton} />
