@@ -1,10 +1,18 @@
 ## Weather App
 
-this is a weather app application that shows the forecast for the next 5 days basedo n the client location.
+A geolocation weather app that shows the forecast for the next 5 days based on the client location.
 
-Features includes allowing the user to obtain information about a particular day such as a temperature as well as a serch bar to look up the weather at different locations. 
+# Features
 
-Theres also a clock that shows the time based on different timezones the user is located. 
+shows the current forecast 
+
+features includes allowing the user to obtain information about a particular day such as temperature 
+
+shows the forecast for the next 5 days based on the client location in the left panel.
+
+search bar to look up the weather in different location
+
+clock that shows the time based on different timezones the user is located. 
 
 
 
