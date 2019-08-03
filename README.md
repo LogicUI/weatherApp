@@ -15,4 +15,6 @@ search bar to look up the weather in different location
 clock that shows the time based on different timezones the user is located. 
 
 
+# Inspiration
 
+The inspiration of the app came about based on weather apps i have seen online , however most weather apps are based on one location and not globally where the user is from.
